@@ -1,6 +1,6 @@
 # Реализовать алгоритм пирамидальной сортировки (сортировка кучей).
 
-def HeapSort(array: list) -> None:
+def HeapSort(array: list) -> None: # O( (n/2-1) * logN + (n-1) * logN )
     length: int = len(array)
     for i in range(length//2 - 1, -1, -1):
         MakeHeap(array, i, length)
@@ -9,7 +9,7 @@ def HeapSort(array: list) -> None:
         (array[i], array[0]) = (array[0], array[i])  # O(const)
         MakeHeap(array, 0, i)
            
-def MakeHeap(array: list, index: int, size: int) -> None:
+def MakeHeap(array: list, index: int, size: int) -> None: # O(logN +-)
     left: int = index*2+ 1
     right: int = index*2 +2
     largest: int = index
@@ -23,7 +23,7 @@ def MakeHeap(array: list, index: int, size: int) -> None:
         MakeHeap(array, largest, size)
       
            
-# def Replacer(array: list, i: int, r: int) -> None:
+# def Replacer(array: list, i: int, r: int) -> None: # O(3)
 #     temp = array[i]
 #     array[i] = array[r]
 #     array[r] = temp
@@ -36,9 +36,9 @@ print(array)
 
 #-------------------------------------------------------------------------------------------------
 #
-#
-#
-#
+# Replaser я обозначил как константу
+# MakeHeap взял как logN +-
+# В целом HeapSort O( (n/2-1) * logN + (n-1) * logN ) если грубо сократить получится n*logN
 #
 #
 #-------------------------------------------------------------------------------------------------
